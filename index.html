@@ -1,13 +1,3 @@
-<?php
-$data_inicio = new DateTime("2021-03-27");
-$hoje = new DateTime();
-$intervalo = $data_inicio->diff($hoje);
-
-$anos = $intervalo->y;
-$meses = $intervalo->m;
-$dias = $intervalo->d;
-$totalDias = $data_inicio->diff($hoje)->days;
-?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -64,10 +54,8 @@ $totalDias = $data_inicio->diff($hoje)->days;
             z-index: 1;
         }
 
-        /* Corações flutuantes */
         .heart {
             position: fixed;
-            font-size: calc(14px + 10 * (random()));
             animation: floatUp 6s linear infinite;
             pointer-events: none;
             opacity: 0.7;
@@ -96,16 +84,35 @@ $totalDias = $data_inicio->diff($hoje)->days;
 
     <div class="contador">
         <p>Estamos juntos há:</p>
-        <p><strong><?= $anos ?> anos, <?= $meses ?> meses e <?= $dias ?> dias</strong></p>
-        <p class="cora">💗 <?= $totalDias ?> dias de amor 💗</p>
-        <p>Desde: <?= $data_inicio->format('d/m/Y') ?></p>
+        <p><strong id="tempoJuntos"></strong></p>
+        <p class="cora" id="diasTotal"></p>
+        <p id="dataInicio"></p>
     </div>
 
     <div class="footer">
         Feito com muito amor 💕 para o Dia dos Namorados
     </div>
 
-    <!-- Script dos corações flutuantes -->
+    <script>
+        // Data de início do relacionamento
+        const dataInicio = new Date("2021-03-27");
+        const hoje = new Date();
+
+        const diff = new Date(hoje - dataInicio);
+        const totalDias = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
+
+        const anos = hoje.getFullYear() - dataInicio.getFullYear();
+        const meses = hoje.getMonth() - dataInicio.getMonth() + (anos * 12);
+        const diffAnos = Math.floor(meses / 12);
+        const diffMeses = meses % 12;
+        const diffDias = hoje.getDate() - dataInicio.getDate();
+        const dias = diffDias < 0 ? 30 + diffDias : diffDias;
+
+        document.getElementById("tempoJuntos").innerText = `${diffAnos} anos, ${diffMeses} meses e ${dias} dias`;
+        document.getElementById("diasTotal").innerText = `💗 ${totalDias} dias de amor 💗`;
+        document.getElementById("dataInicio").innerText = `Desde: ${dataInicio.toLocaleDateString("pt-BR")}`;
+    </script>
+
     <script>
         function criarCoracao() {
             const coracao = document.createElement("div");
@@ -114,6 +121,7 @@ $totalDias = $data_inicio->diff($hoje)->days;
 
             const tamanho = Math.random() * 20 + 20;
             coracao.style.left = Math.random() * 100 + "vw";
+            coracao.style.top = "100vh";
             coracao.style.fontSize = `${tamanho}px`;
             coracao.style.animationDuration = `${Math.random() * 3 + 4}s`;
 

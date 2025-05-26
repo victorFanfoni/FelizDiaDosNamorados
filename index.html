@@ -1,211 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <title>Nosso Amor 💘</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Nosso Amor 💘</title>
+<style>
+  /* Importa fonte cursiva */
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-        html {
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
+  /* Reset e box-sizing global */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
 
-        body {
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 4vw 5vw 6vw;
-            color: #fff;
-            overflow-x: hidden;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+  /* Root font size para acessibilidade */
+  html {
+    font-size: 16px;
+  }
 
-        h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            margin-bottom: 0.3em;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-        }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4vw 5vw 6vw;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+  }
 
-        .contador {
-            font-size: clamp(1rem, 2.5vw, 1.6rem);
-            background: rgba(255, 255, 255, 0.2);
-            padding: clamp(1.2rem, 3vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            max-width: 400px;
-            width: 90%;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
-        }
+  /* Título principal */
+  h1 {
+    font-family: 'Pacifico', cursive;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 0.3em;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+    line-height: 1.1;
+  }
 
-        .contador p {
-            margin: 0.3em 0;
-        }
+  /* Caixa do contador */
+  .contador {
+    background: rgba(255 255 255 / 0.2);
+    backdrop-filter: blur(10px);
+    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 5vw, 3rem);
+    border-radius: 1.25rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    max-width: 400px;
+    width: 90%;
+    margin-top: 2rem;
+    color: #fff;
+  }
 
-        .cora {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            animation: pulse 2.5s infinite;
-        }
+  .contador p {
+    margin: 0.5em 0;
+    font-size: clamp(1rem, 2vw, 1.6rem);
+    line-height: 1.3;
+  }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
+  /* Destaque com animação */
+  .cora {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    animation: pulse 2.5s infinite ease-in-out;
+    user-select: none;
+  }
 
-        .footer {
-            margin-top: 4rem;
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
-            opacity: 0.85;
-            position: relative;
-            z-index: 1;
-        }
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+  }
 
-        .heart {
-            position: fixed;
-            animation: floatUp 6s linear infinite;
-            pointer-events: none;
-            opacity: 0.7;
-            user-select: none;
-            will-change: transform, opacity;
-        }
+  /* Rodapé simples e discreto */
+  .footer {
+    margin-top: 4rem;
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    opacity: 0.85;
+    user-select: none;
+  }
 
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg) scale(1.3);
-                opacity: 0;
-            }
-        }
+  /* Corações flutuantes */
+  .heart {
+    position: fixed;
+    pointer-events: none;
+    animation: floatUp 6s linear infinite;
+    opacity: 0.7;
+    user-select: none;
+    will-change: transform, opacity;
+  }
 
-        /* Responsividade adicional */
+  @keyframes floatUp {
+    0% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-110vh) rotate(360deg) scale(1.3);
+      opacity: 0;
+    }
+  }
 
-        @media (max-width: 900px) {
-            body {
-                padding: 5vw 4vw 6vw;
-            }
-            .contador {
-                max-width: 350px;
-            }
-        }
+  /* Responsividade */
 
-        @media (max-width: 600px) {
-            h1 {
-                font-size: clamp(1.5rem, 5vw, 2.2rem);
-            }
-            .contador {
-                font-size: 1.2rem;
-                padding: 1rem 1.5rem;
-                max-width: 90%;
-            }
-            .cora {
-                font-size: 1.6rem;
-            }
-            .footer {
-                margin-top: 3rem;
-                font-size: 0.85rem;
-            }
-        }
+  /* Tablets e telas médias */
+  @media (max-width: 900px) {
+    body {
+      padding: 5vw 4vw 6vw;
+    }
+    .contador {
+      max-width: 350px;
+    }
+  }
 
-        /* Melhorias para celulares pequenos */
-        @media (max-width: 400px) {
-            body {
-                padding: 3vw 3vw 4vw;
-            }
-            h1 {
-                font-size: 1.4rem;
-                margin-bottom: 0.2em;
-            }
-            .contador {
-                font-size: 1rem;
-                padding: 0.8rem 1rem;
-                max-width: 95%;
-                margin-top: 1.5rem;
-                border-radius: 15px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.12);
-            }
-            .cora {
-                font-size: 1.3rem;
-            }
-            .footer {
-                font-size: 0.8rem;
-                margin-top: 2.5rem;
-            }
-            .heart {
-                font-size: 12px !important;
-                opacity: 0.5 !important;
-            }
-        }
-    </style>
+  /* Celulares grandes */
+  @media (max-width: 600px) {
+    body {
+      padding: 5vw 3vw 5vw;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 0.25em;
+    }
+    .contador {
+      font-size: 1.2rem;
+      padding: 1.2rem 1.8rem;
+      max-width: 95%;
+    }
+    .cora {
+      font-size: 1.8rem;
+    }
+    .footer {
+      margin-top: 3rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  /* Celulares pequenos */
+  @media (max-width: 400px) {
+    body {
+      padding: 3vw 2vw 4vw;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 0.15em;
+    }
+    .contador {
+      font-size: 1rem;
+      padding: 0.8rem 1rem;
+      max-width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    }
+    .cora {
+      font-size: 1.4rem;
+    }
+    .footer {
+      font-size: 0.75rem;
+      margin-top: 2rem;
+    }
+    .heart {
+      font-size: 12px !important;
+      opacity: 0.5 !important;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <h1>❤️ Nosso Amor ❤️</h1>
+  <h1>❤️ Nosso Amor ❤️</h1>
 
-    <div class="contador">
-        <p>Estamos juntos há:</p>
-        <p><strong id="tempoJuntos"></strong></p>
-        <p class="cora" id="diasTotal"></p>
-        <p id="dataInicio"></p>
-    </div>
+  <div class="contador" role="region" aria-label="Tempo de relacionamento">
+    <p>Estamos juntos há:</p>
+    <p><strong id="tempoJuntos" aria-live="polite"></strong></p>
+    <p class="cora" id="diasTotal" aria-live="polite"></p>
+    <p id="dataInicio"></p>
+  </div>
 
-    <div class="footer">
-        Feito com muito amor 💕 para o Dia dos Namorados
-    </div>
+  <div class="footer" aria-label="Rodapé">
+    Feito com muito amor 💕 para o Dia dos Namorados
+  </div>
 
-    <script>
-        // Data de início do relacionamento
-        const dataInicio = new Date("2021-03-27");
-        const hoje = new Date();
+  <script>
+    (() => {
+      // Data de início do relacionamento
+      const dataInicio = new Date("2021-03-27");
+      const hoje = new Date();
 
-        const totalDias = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
+      // Calcula total de dias
+      const msPorDia = 1000 * 60 * 60 * 24;
+      const totalDias = Math.floor((hoje - dataInicio) / msPorDia);
 
-        const anos = hoje.getFullYear() - dataInicio.getFullYear();
-        const meses = hoje.getMonth() - dataInicio.getMonth() + (anos * 12);
-        const diffAnos = Math.floor(meses / 12);
-        const diffMeses = meses % 12;
-        const diffDias = hoje.getDate() - dataInicio.getDate();
-        const dias = diffDias < 0 ? 30 + diffDias : diffDias;
+      // Calcula anos, meses e dias com ajuste para mês incompleto
+      let anos = hoje.getFullYear() - dataInicio.getFullYear();
+      let meses = hoje.getMonth() - dataInicio.getMonth();
+      let dias = hoje.getDate() - dataInicio.getDate();
 
-        document.getElementById("tempoJuntos").innerText = `${diffAnos} anos, ${diffMeses} meses e ${dias} dias`;
-        document.getElementById("diasTotal").innerText = `💗 ${totalDias} dias de amor 💗`;
-        document.getElementById("dataInicio").innerText = `Desde: ${dataInicio.toLocaleDateString("pt-BR")}`;
-    </script>
+      if (dias < 0) {
+        meses--;
+        // Ajusta dias com base no mês anterior
+        const ultimoMes = new Date(hoje.getFullYear(), hoje.getMonth(), 0);
+        dias += ultimoMes.getDate();
+      }
+      if (meses < 0) {
+        anos--;
+        meses += 12;
+      }
 
-    <script>
-        function criarCoracao() {
-            const coracao = document.createElement("div");
-            coracao.classList.add("heart");
-            coracao.innerText = "💖";
+      // Atualiza o texto na tela
+      const tempoJuntosEl = document.getElementById("tempoJuntos");
+      const diasTotalEl = document.getElementById("diasTotal");
+      const dataInicioEl = document.getElementById("dataInicio");
 
-            const tamanho = Math.random() * 20 + 20;
-            coracao.style.left = Math.random() * 100 + "vw";
-            coracao.style.top = "100vh";
-            coracao.style.fontSize = `${tamanho}px`;
-            coracao.style.animationDuration = `${Math.random() * 3 + 4}s`;
+      tempoJuntosEl.textContent = `${anos} ano${anos !== 1 ? 's' : ''}, ${meses} mês${meses !== 1 ? 'es' : ''} e ${dias} dia${dias !== 1 ? 's' : ''}`;
+      diasTotalEl.textContent = `💗 ${totalDias} dia${totalDias !== 1 ? 's' : ''} de amor 💗`;
+      dataInicioEl.textContent = `Desde: ${dataInicio.toLocaleDateString("pt-BR")}`;
+    })();
+  </script>
 
-            document.body.appendChild(coracao);
-            setTimeout(() => coracao.remove(), 7000);
-        }
+  <script>
+    (() => {
+      const criarCoracao = () => {
+        const coracao = document.createElement("div");
+        coracao.classList.add("heart");
+        coracao.textContent = "💖";
 
-        setInterval(criarCoracao, 300);
-    </script>
+        // Tamanho aleatório entre 15px e 40px para boa visibilidade
+        const tamanho = Math.random() * 25 + 15;
+        coracao.style.fontSize = `${tamanho}px`;
+
+        // Posição horizontal aleatória dentro da viewport
+        coracao.style.left = `${Math.random() * 100}vw`;
+        coracao.style.top = `100vh`;
+
+        // Duração aleatória para animação entre 4s e 7s
+        coracao.style.animationDuration = `${Math.random() * 3 + 4}s`;
+
+        document.body.appendChild(coracao);
+
+        // Remove o coração após a animação acabar para liberar memória
+        setTimeout(() => coracao.remove(), 7000);
+      };
+
+      // Cria um coração a cada 300ms para efeito contínuo e suave
+      setInterval(criarCoracao, 300);
+    })();
+  </script>
 
 </body>
 </html>

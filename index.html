@@ -1,187 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8" />
-    <title>Nosso Amor 💘</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
-        html {
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-        *, *:before, *:after {
-            box-sizing: inherit;
-        }
-
-        body {
-            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            padding: 4vw 5vw 6vw;
-            color: #fff;
-            overflow-x: hidden;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        h1 {
-            font-family: 'Pacifico', cursive;
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            margin-bottom: 0.3em;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .contador {
-            font-size: clamp(1rem, 2.5vw, 1.6rem);
-            background: rgba(255, 255, 255, 0.2);
-            padding: clamp(1.2rem, 3vw, 2rem) clamp(1.5rem, 4vw, 2.5rem);
-            border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            max-width: 400px;
-            width: 90%;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-            backdrop-filter: blur(10px);
-            box-sizing: border-box;
-        }
-
-        .contador p {
-            margin: 0.3em 0;
-        }
-
-        .cora {
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            animation: pulse 2.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1); }
-        }
-
-        .footer {
-            margin-top: 4rem;
-            font-size: clamp(0.8rem, 1.5vw, 1rem);
-            opacity: 0.85;
-            position: relative;
-            z-index: 1;
-        }
-
-        .heart {
-            position: fixed;
-            animation: floatUp 6s linear infinite;
-            pointer-events: none;
-            opacity: 0.7;
-            user-select: none;
-            will-change: transform, opacity;
-        }
-
-        @keyframes floatUp {
-            0% {
-                transform: translateY(0) rotate(0deg) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg) scale(1.3);
-                opacity: 0;
-            }
-        }
-
-        /* Responsividade adicional */
-
-        @media (max-width: 900px) {
-            body {
-                padding: 5vw 4vw 6vw;
-            }
-            .contador {
-                max-width: 350px;
-            }
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: clamp(1.5rem, 5vw, 2.2rem);
-            }
-            .contador {
-                font-size: 1.2rem;
-                padding: 1rem 1.5rem;
-                max-width: 90%;
-            }
-            .cora {
-                font-size: 1.6rem;
-            }
-            .footer {
-                margin-top: 3rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 400px) {
-            .heart {
-                font-size: 12px !important;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <h1>❤️ Nosso Amor ❤️</h1>
-
-    <div class="contador">
-        <p>Estamos juntos há:</p>
-        <p><strong id="tempoJuntos"></strong></p>
-        <p class="cora" id="diasTotal"></p>
-        <p id="dataInicio"></p>
-    </div>
-
-    <div class="footer">
-        Feito com muito amor 💕 para o Dia dos Namorados
-    </div>
-
-    <script>
-        // Data de início do relacionamento
-        const dataInicio = new Date("2021-03-27");
-        const hoje = new Date();
-
-        const totalDias = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
-
-        const anos = hoje.getFullYear() - dataInicio.getFullYear();
-        const meses = hoje.getMonth() - dataInicio.getMonth() + (anos * 12);
-        const diffAnos = Math.floor(meses / 12);
-        const diffMeses = meses % 12;
-        const diffDias = hoje.getDate() - dataInicio.getDate();
-        const dias = diffDias < 0 ? 30 + diffDias : diffDias;
-
-        document.getElementById("tempoJuntos").innerText = `${diffAnos} anos, ${diffMeses} meses e ${dias} dias`;
-        document.getElementById("diasTotal").innerText = `💗 ${totalDias} dias de amor 💗`;
-        document.getElementById("dataInicio").innerText = `Desde: ${dataInicio.toLocaleDateString("pt-BR")}`;
-    </script>
-
-    <script>
-        function criarCoracao() {
-            const coracao = document.createElement("div");
-            coracao.classList.add("heart");
-            coracao.innerText = "💖";
-
-            const tamanho = Math.random() * 20 + 20;
-            coracao.style.left = Math.random() * 100 + "vw";
-            coracao.style.top = "100vh";
-            coracao.style.fontSize = `${tamanho}px`;
-            coracao.style.animationDuration = `${Math.random() * 3 + 4}s`;
-
-            document.body.appendChild(coracao);
-            setTimeout(() => coracao.remove(), 7000);
-        }
-
-        setInterval(criarCoracao, 300);
-    </script>
-
-</body>
-</html>
+@media (max-width: 400px) {
+    body {
+        padding: 3vw 3vw 4vw;
+    }
+    h1 {
+        font-size: 1.4rem; /* Menor que antes */
+        margin-bottom: 0.2em;
+    }
+    .contador {
+        font-size: 1rem;
+        padding: 0.8rem 1rem;
+        max-width: 95%;
+        margin-top: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+    }
+    .cora {
+        font-size: 1.3rem;
+    }
+    .footer {
+        font-size: 0.8rem;
+        margin-top: 2.5rem;
+    }
+    .heart {
+        font-size: 12px !important;
+        opacity: 0.5 !important;
+    }
+}

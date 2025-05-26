@@ -5,17 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 <title>Nosso Amor 💘</title>
 <style>
-  /* Importa fonte cursiva */
   @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-  /* Reset e box-sizing global */
   *, *::before, *::after {
     box-sizing: border-box;
   }
 
-  /* Root font size para acessibilidade */
   html {
-    font-size: 16px;
+    font-size: 18px; /* Aumentado para base maior */
   }
 
   body {
@@ -25,7 +22,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4vw 5vw 6vw;
+    padding: 6vw 6vw 8vw;
     background: linear-gradient(135deg, #ff9a9e, #fad0c4);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
@@ -33,37 +30,34 @@
     overflow-x: hidden;
   }
 
-  /* Título principal */
   h1 {
     font-family: 'Pacifico', cursive;
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    margin-bottom: 0.3em;
+    font-size: clamp(3rem, 7vw, 5rem); /* Mais "gordura" no texto */
+    margin-bottom: 0.4em;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
     line-height: 1.1;
   }
 
-  /* Caixa do contador */
   .contador {
-    background: rgba(255 255 255 / 0.2);
-    backdrop-filter: blur(10px);
-    padding: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 5vw, 3rem);
-    border-radius: 1.25rem;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    max-width: 400px;
+    background: rgba(255 255 255 / 0.25);
+    backdrop-filter: blur(12px);
+    padding: clamp(2rem, 5vw, 3.5rem) clamp(3rem, 7vw, 4rem);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    max-width: 420px;
     width: 90%;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
     color: #fff;
   }
 
   .contador p {
-    margin: 0.5em 0;
-    font-size: clamp(1rem, 2vw, 1.6rem);
+    margin: 0.6em 0;
+    font-size: clamp(1.25rem, 3vw, 1.8rem); /* Texto maior */
     line-height: 1.3;
   }
 
-  /* Destaque com animação */
   .cora {
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(2.5rem, 5vw, 3rem); /* Mais impacto */
     animation: pulse 2.5s infinite ease-in-out;
     user-select: none;
   }
@@ -77,15 +71,13 @@
     }
   }
 
-  /* Rodapé simples e discreto */
   .footer {
-    margin-top: 4rem;
-    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    margin-top: 5rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     opacity: 0.85;
     user-select: none;
   }
 
-  /* Corações flutuantes */
   .heart {
     position: fixed;
     pointer-events: none;
@@ -108,64 +100,61 @@
 
   /* Responsividade */
 
-  /* Tablets e telas médias */
   @media (max-width: 900px) {
     body {
-      padding: 5vw 4vw 6vw;
+      padding: 7vw 5vw 8vw;
     }
     .contador {
-      max-width: 350px;
+      max-width: 380px;
     }
   }
 
-  /* Celulares grandes */
   @media (max-width: 600px) {
+    body {
+      padding: 7vw 5vw 7vw;
+    }
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 3.8rem); /* maior no celular */
+      margin-bottom: 0.3em;
+    }
+    .contador {
+      font-size: 1.4rem;
+      padding: 1.8rem 2.5rem;
+      max-width: 95%;
+    }
+    .cora {
+      font-size: 2.8rem;
+    }
+    .footer {
+      margin-top: 3.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 400px) {
     body {
       padding: 5vw 3vw 5vw;
     }
     h1 {
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      margin-bottom: 0.25em;
+      font-size: 2.2rem;
+      margin-bottom: 0.2em;
     }
     .contador {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       padding: 1.2rem 1.8rem;
-      max-width: 95%;
-    }
-    .cora {
-      font-size: 1.8rem;
-    }
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.85rem;
-    }
-  }
-
-  /* Celulares pequenos */
-  @media (max-width: 400px) {
-    body {
-      padding: 3vw 2vw 4vw;
-    }
-    h1 {
-      font-size: 1.6rem;
-      margin-bottom: 0.15em;
-    }
-    .contador {
-      font-size: 1rem;
-      padding: 0.8rem 1rem;
       max-width: 100%;
       border-radius: 1rem;
       box-shadow: 0 5px 15px rgba(0,0,0,0.12);
     }
     .cora {
-      font-size: 1.4rem;
+      font-size: 2rem;
     }
     .footer {
-      font-size: 0.75rem;
-      margin-top: 2rem;
+      font-size: 0.95rem;
+      margin-top: 2.5rem;
     }
     .heart {
-      font-size: 12px !important;
+      font-size: 14px !important;
       opacity: 0.5 !important;
     }
   }
@@ -188,22 +177,17 @@
 
   <script>
     (() => {
-      // Data de início do relacionamento
       const dataInicio = new Date("2021-03-27");
       const hoje = new Date();
-
-      // Calcula total de dias
       const msPorDia = 1000 * 60 * 60 * 24;
       const totalDias = Math.floor((hoje - dataInicio) / msPorDia);
 
-      // Calcula anos, meses e dias com ajuste para mês incompleto
       let anos = hoje.getFullYear() - dataInicio.getFullYear();
       let meses = hoje.getMonth() - dataInicio.getMonth();
       let dias = hoje.getDate() - dataInicio.getDate();
 
       if (dias < 0) {
         meses--;
-        // Ajusta dias com base no mês anterior
         const ultimoMes = new Date(hoje.getFullYear(), hoje.getMonth(), 0);
         dias += ultimoMes.getDate();
       }
@@ -212,14 +196,14 @@
         meses += 12;
       }
 
-      // Atualiza o texto na tela
-      const tempoJuntosEl = document.getElementById("tempoJuntos");
-      const diasTotalEl = document.getElementById("diasTotal");
-      const dataInicioEl = document.getElementById("dataInicio");
+      document.getElementById("tempoJuntos").textContent =
+        `${anos} ano${anos !== 1 ? 's' : ''}, ${meses} mês${meses !== 1 ? 'es' : ''} e ${dias} dia${dias !== 1 ? 's' : ''}`;
 
-      tempoJuntosEl.textContent = `${anos} ano${anos !== 1 ? 's' : ''}, ${meses} mês${meses !== 1 ? 'es' : ''} e ${dias} dia${dias !== 1 ? 's' : ''}`;
-      diasTotalEl.textContent = `💗 ${totalDias} dia${totalDias !== 1 ? 's' : ''} de amor 💗`;
-      dataInicioEl.textContent = `Desde: ${dataInicio.toLocaleDateString("pt-BR")}`;
+      document.getElementById("diasTotal").textContent =
+        `💗 ${totalDias} dia${totalDias !== 1 ? 's' : ''} de amor 💗`;
+
+      document.getElementById("dataInicio").textContent =
+        `Desde: ${dataInicio.toLocaleDateString("pt-BR")}`;
     })();
   </script>
 
@@ -230,24 +214,16 @@
         coracao.classList.add("heart");
         coracao.textContent = "💖";
 
-        // Tamanho aleatório entre 15px e 40px para boa visibilidade
-        const tamanho = Math.random() * 25 + 15;
+        const tamanho = Math.random() * 30 + 20;
         coracao.style.fontSize = `${tamanho}px`;
-
-        // Posição horizontal aleatória dentro da viewport
         coracao.style.left = `${Math.random() * 100}vw`;
         coracao.style.top = `100vh`;
-
-        // Duração aleatória para animação entre 4s e 7s
         coracao.style.animationDuration = `${Math.random() * 3 + 4}s`;
 
         document.body.appendChild(coracao);
-
-        // Remove o coração após a animação acabar para liberar memória
         setTimeout(() => coracao.remove(), 7000);
       };
 
-      // Cria um coração a cada 300ms para efeito contínuo e suave
       setInterval(criarCoracao, 300);
     })();
   </script>
